@@ -1,0 +1,30 @@
+const int trigPin = 9;
+const int echoPin = 10;
+long duration;
+int distanceCm, distanceInch;
+void setup() {
+ pinMode(trigPin, OUTPUT);
+ pinMode(echoPin, INPUT);
+ Serial.begin(9600);
+}
+void loop() {
+ // Clear the trigPin
+ digitalWrite(trigPin, LOW);
+ delayMicroseconds(2);
+ // Set the trigPin HIGH for 10 microseconds
+ digitalWrite(trigPin, HIGH);
+ delayMicroseconds(10);
+ digitalWrite(trigPin, LOW);
+ // Read the echoPin, returns the sound wave travel time in microseconds
+ duration = pulseIn(echoPin, HIGH);
+ // Calculate the distance in centimeters and inches
+ distanceCm = duration * 0.034 / 2;
+ distanceInch = duration * 0.0133 / 2;
+ // Print the results to the Serial Monitor
+ Serial.print("Distance: ");
+ Serial.print(distanceCm);
+ Serial.print(" cm, ");
+ Serial.print(distanceInch);
+ Serial.println(" inches");
+ delay(100); // Optional delay between measurements
+}
