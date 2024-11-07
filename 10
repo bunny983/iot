@@ -1,19 +1,18 @@
 #include <ThingSpeak.h>
 #include <WiFi.h>
 WiFiClient client;
-const char* ssid = "OPPOF19";//Enter the ssid of your router
-const char* password = "987654321";//Enter the password of your router
+const char* ssid = "OPPOF19";
+const char* password = "987654321";
 const char* host = "api.thingspeak.com";
 const char* privateKey = "CIC1Z0W0U6RNOJWU";//read key
 const char* privateKey1 = "6FQ21NMY4DAJK85X";//write key
 void setup() {
 Serial.begin(115200);
- pinMode(16, OUTPUT);//setting led as output
- //pinMode(fan, OUTPUT);//setting led as output
+ pinMode(16, OUTPUT);
+ //pinMode(fan, OUTPUT);
  //dht.begin();
  ThingSpeak.begin(client);
  delay(10);
- // We start by connecting to a WiFi network
  Serial.println();
  Serial.println();
  Serial.print("Connecting to ");
