@@ -1,0 +1,50 @@
+void setup() {
+ // Set pins for North, South, East, and West lights as outputs
+ pinMode(2, OUTPUT); // North Red
+ pinMode(3, OUTPUT); // North Yellow
+ pinMode(4, OUTPUT); // North Green
+ pinMode(5, OUTPUT); // South Red
+ pinMode(6, OUTPUT); // South Yellow
+ pinMode(7, OUTPUT); // South Green
+ pinMode(8, OUTPUT); // East Red
+ pinMode(9, OUTPUT); // East Yellow
+ pinMode(10, OUTPUT); // East Green
+ pinMode(11, OUTPUT); // West Red
+ pinMode(12, OUTPUT); // West Yellow
+ pinMode(13, OUTPUT); // West Green
+}
+void loop() {
+ // Step 1: North and South green, East and West red
+ digitalWrite(4, HIGH); // North Green
+ digitalWrite(7, HIGH); // South Green
+ digitalWrite(8, HIGH); // East Red
+ digitalWrite(11, HIGH); // West Red
+ delay(5000); // Green light duration
+ // Step 2: North and South yellow, East and West red
+ digitalWrite(4, LOW); // North Green off
+ digitalWrite(7, LOW); // South Green off
+ digitalWrite(3, HIGH); // North Yellow
+ digitalWrite(6, HIGH); // South Yellow
+ delay(2000); // Yellow light duration
+ // Step 3: East and West green, North and South red
+ digitalWrite(3, LOW); // North Yellow off
+ digitalWrite(6, LOW); // South Yellow off
+ digitalWrite(2, HIGH); // North Red
+ digitalWrite(5, HIGH); // South Red
+ digitalWrite(10, HIGH); // East Green
+ digitalWrite(13, HIGH); // West Green
+ delay(5000); // Green light duration
+ // Step 4: East and West yellow, North and South red
+ digitalWrite(10, LOW); // East Green off
+ digitalWrite(13, LOW); // West Green off
+ digitalWrite(9, HIGH); // East Yellow
+ digitalWrite(12, HIGH); // West Yellow
+ delay(2000); // Yellow light duration
+ // Reset for next cycle
+ digitalWrite(9, LOW); // East Yellow off
+ digitalWrite(12, LOW); // West Yellow off
+ digitalWrite(2, LOW); // North Red off
+ digitalWrite(5, LOW); // South Red off
+ digitalWrite(8, HIGH); // East Red
+ digitalWrite(11, HIGH); // West Red
+}
